@@ -1,0 +1,10 @@
+body {
+    background-color: dimgrey;
+    position: relative;
+}
+
+.content-body {
+    background-color: lightblue;
+    width: 80vw;
+    margin: auto;
+}
