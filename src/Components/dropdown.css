@@ -1,0 +1,18 @@
+.tab {
+    border-color: black;
+    border-style: solid;
+    border-width: 1px;
+    background-color: white;
+    width: 60vw;
+    height: 30px;
+    margin: auto;
+    padding: 0 0.7rem 0 0.7rem;
+
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+.drop-button {
+    height: 80%;
+}
