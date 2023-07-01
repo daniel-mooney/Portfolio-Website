@@ -1,13 +1,15 @@
-.tab {
-    border-color: black;
-    border-style: solid;
-    border-width: 1px;
+.content-container {
     background-color: white;
     width: 60vw;
-    height: 30px;
     margin: auto;
-    padding: 0 0.7rem 0 0.7rem;
+}
 
+.tab {
+    border-color: black;
+    border-width: 1px;
+    border-bottom-style: solid;
+    height: 30px;
+    padding: 0 0.7rem 0 0.7rem;
     display: flex;
     justify-content: space-between;
     align-items: center;
@@ -15,4 +17,17 @@
 
 .drop-button {
     height: 80%;
+    background-color: inherit;
+    border: none;
+    font-family:'Courier New', Courier, monospace;
+    font-size: larger;
+}
+
+.drop-container-open, .drop-container-closed {
+    overflow: hidden;
+    padding: 0 0.7rem 0 0.7rem;
+}
+
+.drop-container-closed {
+    height: 0px;
 }
