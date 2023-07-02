@@ -1,6 +1,7 @@
 .form-container {
     margin: auto;
     width: 40vw;
+    min-width: 350px;
     box-sizing: border-box;
 }
 
