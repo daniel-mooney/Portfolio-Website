@@ -11,6 +11,7 @@ export default function Dropdown(props) {
 
     const childElements = document.getElementById(id.current)
     const childHeight = childElements != null ? childElements.scrollHeight : 0
+    const childOffsetHeight = childElements != null ? childElements.offsetHeight : 0
 
     const transitionSpeed = props.transitionSpeed || 400;        // in milliseconds
     const transCSS = `
@@ -19,7 +20,7 @@ export default function Dropdown(props) {
         }
 
         .drop-container${id.current}-enter{
-            height: ${childElements.offsetHeight}px;
+            height: ${childOffsetHeight}px;
         }
         
         .drop-container${id.current}-enter-active {
@@ -28,7 +29,7 @@ export default function Dropdown(props) {
         }
         
         .drop-container${id.current}-exit {
-            height: ${childElements.offsetHeight}px;
+            height: ${childOffsetHeight}px;
         }
         
         .drop-container${id.current}-exit-active {
