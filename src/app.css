@@ -3,6 +3,10 @@ body {
     position: relative;
 }
 
+p {
+    margin: 0;
+}
+
 .content-body {
     background-color: lightblue;
     width: 80vw;
