@@ -9,7 +9,8 @@ function App() {
     <div className='content-body'>
       <Dropdown name='Name'>
         <p>Test</p>
-        <p>More text</p>
+      </Dropdown>
+      <Dropdown name="Image">
         <img src={drc1} style={{height: '40vh'}}/>
       </Dropdown>
     </div>

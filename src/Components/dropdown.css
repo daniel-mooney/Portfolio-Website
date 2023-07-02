@@ -25,7 +25,6 @@
 
 .drop-container-open, .drop-container-closed {
     overflow: hidden;
-    padding: 0 0.7rem 0 0.7rem;
 }
 
 .drop-container-closed {
