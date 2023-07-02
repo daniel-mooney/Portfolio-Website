@@ -1,0 +1,29 @@
+.form-container {
+    margin: auto;
+    width: 40vw;
+    box-sizing: border-box;
+}
+
+.contact-details-container {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin: 0.15rem;
+}
+
+.contact-name {
+    width: 34%;
+}
+
+.contact-email {
+    width: 60%;
+}
+
+.contact-msg {
+    min-width: calc(100% - 0.3rem);
+    max-width: calc(100% - 0.3rem);
+
+    margin: 0.15rem;
+    margin-top: 0.6rem;
+    box-sizing: inherit;
+}
