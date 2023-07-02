@@ -11,27 +11,29 @@ export default function Dropdown(props) {
 
     const childElements = document.getElementById(id.current)
     const childHeight = childElements != null ? childElements.scrollHeight : 0
+
+    const transitionSpeed = props.transitionSpeed || 400;        // in milliseconds
     const transCSS = `
         .drop-container${id.current}-open$ {
             height: ${childHeight}px
         }
 
         .drop-container${id.current}-enter{
-            height: 0px;
+            height: ${childElements.offsetHeight}px;
         }
         
         .drop-container${id.current}-enter-active {
             height: ${childHeight}px;
-            transition: height 300ms;
+            transition: height ${transitionSpeed}ms;
         }
         
         .drop-container${id.current}-exit {
-            height: ${childHeight}px;
+            height: ${childElements.offsetHeight}px;
         }
         
         .drop-container${id.current}-exit-active {
             height: 0px;
-            transition: height 300ms;
+            transition: height ${transitionSpeed}ms;
         }
     `
 
@@ -51,18 +53,14 @@ export default function Dropdown(props) {
                     classNames={`drop-container${id.current}`}
                     nodeRef={trans}
                     in={drop}
-                    timeout={300}
+                    timeout={transitionSpeed}
                 >
                     <div id={id.current} ref={trans} className={`drop-container-${drop ? 'open' : 'closed'}`}>
-                        <div style={{padding: '0.7rem'}}>
-                            {props.children}
-                        </div>
+                        {props.children}
                     </div>
-
                 </CSSTransition>
                 
             </div>
-        </>
-            
+        </>        
     );
 }

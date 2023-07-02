@@ -8,10 +8,14 @@ function App() {
   return (
     <div className='content-body'>
       <Dropdown name='Name'>
-        <p>Test</p>
+        <div style={{padding: '0.7rem'}}>
+          <p>Test</p>   
+        </div>
       </Dropdown>
       <Dropdown name="Image">
-        <img src={drc1} style={{height: '40vh'}}/>
+        <div style={{padding: '0.7rem'}}>
+          <img src={drc1} style={{height: '40vh'}}/>
+        </div>
       </Dropdown>
     </div>
   )
