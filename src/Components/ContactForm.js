@@ -12,6 +12,9 @@ export default function ContactForm() {
                 </div>
                 {/* <input className='contact-msg' type='text' placeholder='Message'/> */}
                 <textarea className='contact-msg' placeholder='Message' rows='8'/>
+                <div className='contact-button-container'>
+                    <button className='contact-button'>Send</button>
+                </div>
             </div>
         </form>
     </>

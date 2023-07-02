@@ -27,3 +27,13 @@
     margin-top: 0.6rem;
     box-sizing: inherit;
 }
+
+.contact-button {
+    margin: 0.15rem;
+    float: right;
+}
+
+.contact-button-container {
+    display: flex;
+    justify-content: flex-end;
+}
