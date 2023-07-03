@@ -12,14 +12,6 @@
     margin: 0.15rem;
 }
 
-.contact-name {
-    width: 34%;
-}
-
-.contact-email {
-    width: 60%;
-}
-
 .contact-msg {
     min-width: calc(100% - 0.3rem);
     max-width: calc(100% - 0.3rem);
