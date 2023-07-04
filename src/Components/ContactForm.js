@@ -19,11 +19,13 @@ export default function ContactForm() {
         console.log(emailField.current.value);
         console.log(msgField.current.value);
         
-        emailjs.sendForm('service_empzo39', 'PFW_contact_form', form.current, 'SVWBkRhHG3q9jAL-l');
-            // .then()
-
-        alert("Message Sent");
-        clearForm();
+        emailjs.sendForm('service_empzo39', 'PFW_contact_form', form.current, 'SVWBkRhHG3q9jAL-l')
+            .then(function(response) {
+                alert("Message successfully sent!");
+                clearForm();
+            }, function(error) {
+                alert("Message FAILED to send...")
+            });
     }
 
     function clearForm() {
