@@ -3,10 +3,6 @@ import emailjs from '@emailjs/browser';
 
 import "./contactForm.css"
 
-const NAME_ID = "form-name";
-const EMAIL_ID = "form-email";
-const MSG_ID = "form-msg";
-
 export default function ContactForm() {
     const form = useRef(null);
     const nameField = useRef(null);
