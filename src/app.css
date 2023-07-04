@@ -16,7 +16,8 @@ p {
     background-color: rgba(6, 20, 47, 255);
     border-style: solid;
     border-width: 1px;
-    border-color: white;
+    /* border-color: white; */
+    box-shadow: 0 0 7px 2px white;
     width: 65vw;
     height: auto;
     margin: auto;
