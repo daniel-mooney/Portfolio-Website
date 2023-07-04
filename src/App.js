@@ -1,8 +1,8 @@
-import React from 'react'
-import Dropdown from './Components/Dropdown'
-import ContactForm from './Components/ContactForm'
-import "./app.css"
+import React from 'react';
+import Dropdown from './Components/Dropdown';
+import ContactForm from './Components/ContactForm';
 
+import "./app.css";
 import drc1 from "./img/drc_1.jpg"
 
 function App() {
@@ -26,6 +26,7 @@ function App() {
         </div>
       </Dropdown>
       <br/>
+      <h2>Contact Me</h2>
       <ContactForm />
     </div>
   )
