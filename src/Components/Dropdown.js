@@ -7,11 +7,11 @@ export default function Dropdown(props) {
     
     const [drop, setDrop] = useState(false);
     const trans = useRef(null);
-    const id = useRef(v4())
+    const id = useRef(v4());
 
-    const childElements = document.getElementById(id.current)
-    const childHeight = childElements != null ? childElements.scrollHeight : 0
-    const childOffsetHeight = childElements != null ? childElements.offsetHeight : 0
+    const childElements = document.getElementById(id.current);
+    const childHeight = childElements != null ? childElements.scrollHeight : 0;          // total height
+    const childOffsetHeight = childElements != null ? childElements.offsetHeight : 0;    // current height
 
     const transitionSpeed = props.transitionSpeed || 400;        // in milliseconds
     const transCSS = `
