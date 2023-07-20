@@ -10,6 +10,7 @@ export default function Competencies() {
 	const setup = async (p5, canvasParentRef) => {
 		p5.createCanvas(600, 350).parent(canvasParentRef);
 		p5.textFont("Georgia");
+		p5.angleMode(p5.DEGREE);
 	}
 
 	const draw = (p5) => {
@@ -41,6 +42,10 @@ class FloatingItem {
 
 	draw(p5) {
 		this.#item.draw(p5);
+	}
+
+	rotate(angle) {
+		let 
 	}
 }
 
@@ -94,6 +99,7 @@ class Circle {
 class Text {
 	#string;
 	#position;
+	#colour;
 
 	constructor(string, position = new Vector2D(0,0)) {
 		this.#string = string;
@@ -106,5 +112,9 @@ class Text {
 
 	get position() {
 		return this.#position;
+	}
+
+	get colour() {
+		return this.#colour;
 	}
 }
