@@ -47,7 +47,7 @@ export default function Dropdown(props) {
             <div className='content-container'>
                 <style>{transCSS}</style>
                 <div className='tab'>
-                    <h2 style={{margin: '0'}}>{props.name}</h2>
+                    <p className='title'>{props.name}</p>
                     <button className='drop-button' onClick={toggleDropdown}>{drop ? '-' : '+'}</button>
                 </div>
                 <CSSTransition

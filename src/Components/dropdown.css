@@ -1,11 +1,12 @@
 .content-container {
-    background-color: white;
+    background-color: transparent;
+    color: white;
     width: 60vw;
     margin: auto;
 }
 
 .tab {
-    border-color: black;
+    border-color: white;
     border-width: 1px;
     border-bottom-style: solid;
     height: 30px;
@@ -21,6 +22,7 @@
     border: none;
     font-family:'Courier New', Courier, monospace;
     font-size: larger;
+    color: white;
 }
 
 .drop-container-open, .drop-container-closed {
@@ -29,4 +31,10 @@
 
 .drop-container-closed {
     height: 0px;
+}
+
+.title {
+    font-family:Georgia, 'Times New Roman', Times, serif;
+    font-size: 1.3rem;
+    margin: 0;
 }
