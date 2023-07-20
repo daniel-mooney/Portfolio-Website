@@ -21,6 +21,16 @@ p {
     padding: 0.5rem;
 }
 
+.dropdown-content {
+    text-align: justify;
+    padding: 0.7rem;
+}
+
+.dropdown-img {
+    float: right;
+    margin: 0 0 0 3%;
+}
+
 .parallax {
     perspective: 1px;
     height: 100vh;
