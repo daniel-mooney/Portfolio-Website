@@ -11,7 +11,7 @@ const boundaryEnum = {
 
 export default function Competencies() {
 	const text1 = new Text("Hello", new Vector2D(250, 250));
-	const movingText1 = new FloatingItem(text1, new Vector2D(0.8, 0.8));
+	const movingText1 = new FloatingItem(text1, new Vector2D(2, 2));
 
 	const setup = async (p5, canvasParentRef) => {
 		p5.createCanvas(600, 350).parent(canvasParentRef);
@@ -41,7 +41,7 @@ class FloatingItem {
 
 	updatePosition(p5) {
 		this.bounce(p5);
-		// console.log(`[${this.#velocity.x}, ${this.#velocity.y}]`);
+		console.log(`[${this.#velocity.x}, ${this.#velocity.y}]`);
 		this.#item.position.add(this.#velocity);
 	}
 
@@ -53,13 +53,11 @@ class FloatingItem {
 		let boundary = this.#item.atBoundary(p5);
 
 		if (boundary == boundaryEnum.X_AXIS || boundary == boundaryEnum.BOTH) {
-			let currX = this.#velocity.x;
-			this.#velocity.x = currX * -1;
+			this.#velocity.x *= -1;
 		}
 
 		if (boundary == boundaryEnum.Y_AXIS || boundary == boundaryEnum.BOTH) {
-			let currY = this.#velocity.y;
-			this.#velocity.y *= this.#velocity.y * -1;
+			this.#velocity.y *= -1;
 		}
 	}
 
