@@ -4,6 +4,7 @@ import ContactForm from './Components/ContactForm';
 
 import "./app.css";
 import drc1 from "./img/drc_1.jpg"
+import Competencies from './Components/Competencies';
 
 function App() {
   const content = useRef(null);
@@ -28,10 +29,10 @@ function App() {
   
   return (
     <>
-      
       <div className='parallax'>
         <div className='parallax__layer--back' ref={background}></div>
         <div className='parallax__layer--base content-body' ref={content}>
+          <Competencies />
           <Dropdown name='Lorem Ipsum'>
             <div className='dropdown-content'>
               <img className='dropdown-img' src={drc1} style={{height: '35vh'}}/>
