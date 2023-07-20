@@ -35,8 +35,8 @@ export default function ContactForm() {
         <form id='contact-form' ref={form} onSubmit={emailForm}>
             <div className='form-container'>
                 <div className='contact-details-container'>
-                    <input ref={nameField} type='text' placeholder='Name' name='name' size={23} required/>
-                    <input ref={emailField}  type='email' placeholder='Email' name='email' size={42} required/>
+                    <input className='contact-name' ref={nameField} type='text' placeholder='Name' name='name' size={23} required/>
+                    <input className='contact-email' ref={emailField}  type='email' placeholder='Email' name='email' size={42} required/>
                 </div>
                 <textarea ref={msgField} className='contact-msg' placeholder='Message' name='msg' rows='8' required/>
                 <div className='contact-button-container'>

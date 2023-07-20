@@ -21,6 +21,14 @@
     box-sizing: inherit;
 }
 
+.contact-name {
+    min-width: 35%;
+}
+
+.contact-email {
+    min-width: 60%;
+}
+
 .contact-button {
     margin: 0.15rem;
     float: right;

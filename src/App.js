@@ -40,40 +40,7 @@ function App() {
           <Dropdown name="Image">
             <img src={drc1} style={{height: '40vh'}}/>
           </Dropdown>
-          <Dropdown name="Image">
-            <img src={drc1} style={{height: '40vh'}}/>
-          </Dropdown>
-          <Dropdown name="Image">
-            <img src={drc1} style={{height: '40vh'}}/>
-          </Dropdown>
-          <Dropdown name="Image">
-            <img src={drc1} style={{height: '40vh'}}/>
-          </Dropdown>
-          <Dropdown name="Image">
-            <img src={drc1} style={{height: '40vh'}}/>
-          </Dropdown>
-          <Dropdown name="Image">
-            <img src={drc1} style={{height: '40vh'}}/>
-          </Dropdown>
-          <Dropdown name="Image">
-            <img src={drc1} style={{height: '40vh'}}/>
-          </Dropdown>
-          <Dropdown name="Image">
-            <img src={drc1} style={{height: '40vh'}}/>
-          </Dropdown>
-          <Dropdown name="Image">
-            <img src={drc1} style={{height: '40vh'}}/>
-          </Dropdown>
-          <Dropdown name="Projects">
-            <div style={{padding: '0.7rem'}}>
-              <p>Some of my past projects</p>
-              <ul>
-                <li>This React website!</li>
-                <li>Droid racing challenge</li>
-              </ul>
-            </div>
-          </Dropdown>
-          <br/>
+          
           <ContactForm />
         </div>
       </div>
