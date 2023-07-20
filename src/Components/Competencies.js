@@ -10,7 +10,7 @@ const boundaryEnum = {
 
 
 export default function Competencies() {
-	const text1 = new Text("Hello", new Vector2D(100, 300));
+	const text1 = new Text("Hello", new Vector2D(250, 250));
 	const movingText1 = new FloatingItem(text1, new Vector2D(0.8, 0.8));
 
 	const setup = async (p5, canvasParentRef) => {
@@ -41,7 +41,7 @@ class FloatingItem {
 
 	updatePosition(p5) {
 		this.bounce(p5);
-		console.log(`[${this.#velocity.x}, ${this.#velocity.y}]`);
+		// console.log(`[${this.#velocity.x}, ${this.#velocity.y}]`);
 		this.#item.position.add(this.#velocity);
 	}
 
@@ -135,7 +135,7 @@ class Text {
 
 	draw(p5) {
 		let height = p5.textAscent() + p5.textDescent();
-		let width = p5.textWidth();
+		let width = p5.textWidth(this.#string);
 
 		p5.push();
 		p5.rectMode(p5.CENTER);
@@ -145,7 +145,7 @@ class Text {
 
 	atBoundary(p5) {
 		let textHeight = p5.textAscent() + p5.textDescent();
-		let textWidth = p5.textWidth();
+		let textWidth = p5.textWidth(this.#string);
 		let xTolerance = textWidth / 2;
 		let yTolerance = textHeight / 2;
 
