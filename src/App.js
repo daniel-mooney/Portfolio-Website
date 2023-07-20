@@ -40,7 +40,7 @@ function App() {
           <Dropdown name="Image">
             <img src={drc1} style={{height: '40vh'}}/>
           </Dropdown>
-          
+          <br/>
           <ContactForm />
         </div>
       </div>
