@@ -10,10 +10,8 @@ const boundaryEnum = {
 
 
 export default function Competencies() {
-	const circle1 = new Circle(50, new Vector2D(200, 300));
-	const movingCircle1 = new FloatingItem(circle1, new Vector2D(1, -1));
-	const text1 = new Text("Hello", new Vector2D(26.9, 7.5));
-	const movingText1 = new FloatingItem(text1, new Vector2D(0.2, 0.2));
+	const text1 = new Text("Hello", new Vector2D(100, 300));
+	const movingText1 = new FloatingItem(text1, new Vector2D(0.8, 0.8));
 
 	const setup = async (p5, canvasParentRef) => {
 		p5.createCanvas(600, 350).parent(canvasParentRef);
@@ -25,10 +23,7 @@ export default function Competencies() {
 		p5.clear();
 		p5.background(255, 130, 20);
 		
-		movingCircle1.updatePosition();
-		// movingText1.updatePosition();
-
-		movingCircle1.draw(p5);
+		movingText1.updatePosition(p5);
 		movingText1.draw(p5);
 	}
 
@@ -37,19 +32,35 @@ export default function Competencies() {
 
 class FloatingItem {
 	#item;
-	#velocity;				// int[]
+	#velocity;
 
 	constructor(item, velocity) {
 		this.#item = item;
 		this.#velocity = velocity
 	}
 
-	updatePosition() {
+	updatePosition(p5) {
+		this.bounce(p5);
+		console.log(`[${this.#velocity.x}, ${this.#velocity.y}]`);
 		this.#item.position.add(this.#velocity);
 	}
 
 	draw(p5) {
 		this.#item.draw(p5);
+	}
+
+	bounce(p5) {
+		let boundary = this.#item.atBoundary(p5);
+
+		if (boundary == boundaryEnum.X_AXIS || boundary == boundaryEnum.BOTH) {
+			let currX = this.#velocity.x;
+			this.#velocity.x = currX * -1;
+		}
+
+		if (boundary == boundaryEnum.Y_AXIS || boundary == boundaryEnum.BOTH) {
+			let currY = this.#velocity.y;
+			this.#velocity.y *= this.#velocity.y * -1;
+		}
 	}
 
 	rotate(angle) {
@@ -70,11 +81,19 @@ class Vector2D {
 		return this.#x;
 	}
 
+	set x(newX) {
+		this.#x = newX;
+	}
+
 	get y() {
 		return this.#y;
 	}
 
-	set position(newPosition) {
+	set y(newY) {
+		this.#y = newY;
+	}
+
+	position(newPosition) {
 		this.#x = newPosition.x;
 		this.#y = newPosition.y;
 	}
@@ -117,7 +136,6 @@ class Text {
 	draw(p5) {
 		let height = p5.textAscent() + p5.textDescent();
 		let width = p5.textWidth();
-		console.log(`[${width}, ${height}]`);
 
 		p5.push();
 		p5.rectMode(p5.CENTER);
@@ -129,13 +147,13 @@ class Text {
 		let textHeight = p5.textAscent() + p5.textDescent();
 		let textWidth = p5.textWidth();
 		let xTolerance = textWidth / 2;
-		let yTolerance = textWidth / 2;
+		let yTolerance = textHeight / 2;
 
-		let atXBoundary = (this.#position.x - xTolerance) <= 0
-							|| (this.#position.x + xTolerance >= p5.width);
+		let atXBoundary = ((this.#position.x - xTolerance) <= 0
+							|| (this.#position.x + xTolerance) >= p5.width);
 		
-		let atYBoundary = (this.#position.y - yTolerance <= 0)
-							|| (this.#position.y + yTolerance >= p5.height);
+		let atYBoundary = ((this.#position.y - yTolerance) <= 0
+							|| (this.#position.y + yTolerance) >= p5.height);
 
 		if (atXBoundary && atYBoundary) {
 			return boundaryEnum.BOTH;
