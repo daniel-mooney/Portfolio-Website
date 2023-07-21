@@ -7,6 +7,29 @@ p {
     margin: 0;
 }
 
+.parallax {
+    perspective: 1px;
+    height: 100vh;
+    overflow-x: hidden;
+    overflow-y: auto;
+    scrollbar-gutter: stable both-edges;
+}
+
+.parallax__layer--base {
+    position: relative;
+    transform: translateZ(0);
+    z-index: 2;
+}
+.parallax__layer--back {
+    position: absolute;
+    transform: translateZ(-49px) scale(50);         /*1 + (transZ * -1) / p*/
+    background-image: url("./img/space.jpg");
+    background-position: center;
+    min-height: 100vh;
+    width: 101vw;
+    z-index: 1;
+}
+
 .content-body {
     background-color: rgba(10,13,26,255);
     border-style: solid;
@@ -36,27 +59,4 @@ p {
 .dropdown-img {
     float: right;
     margin: 0 0 0 3%;
-}
-
-.parallax {
-    perspective: 1px;
-    height: 100vh;
-    overflow-x: hidden;
-    overflow-y: auto;
-    scrollbar-gutter: stable both-edges;
-}
-
-.parallax__layer--base {
-    position: relative;
-    transform: translateZ(0);
-    z-index: 2;
-}
-.parallax__layer--back {
-    position: absolute;
-    transform: translateZ(-49px) scale(50);         /*1 + (transZ * -1) / p*/
-    background-image: url("./img/space.jpg");
-    background-position: center;
-    min-height: 100vh;
-    width: 101vw;
-    z-index: 1;
 }
