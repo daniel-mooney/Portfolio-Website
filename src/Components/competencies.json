@@ -3,5 +3,6 @@
     "OpenCV": "blue",
     "JavaScript": "yellow",
     "C++": "red",
-    "aiken": "white"
+    "aiken": "white",
+    "Java": "orange"
 }
