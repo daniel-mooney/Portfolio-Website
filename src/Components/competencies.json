@@ -1,7 +1,7 @@
 {
-    "competencies": {
-        "python": "green",
-        "OpenCV": "blue",
-        "JavaScript": "yellow"
-    }
+    "python": "green",
+    "OpenCV": "blue",
+    "JavaScript": "yellow",
+    "C++": "red",
+    "aiken": "white"
 }

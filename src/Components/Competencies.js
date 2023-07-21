@@ -1,5 +1,6 @@
 import React from 'react'
 import Sketch from 'react-p5'
+import competencies from './competencies.json'
 
 const boundaryEnum = {
 	NONE: 'none',
@@ -9,18 +10,38 @@ const boundaryEnum = {
 }
 
 const colour = {
-	WHITE: [255,255,255]
+	BLACK: [0,0,0],
+	WHITE: [255,255,255],
+	BLUE: [0,0,255],
+	RED: [255,0,0],
+	GREEN: [0,255,0],
+	YELLOW: [255,255,0],
+	ORANGE: [255,165,0]
 }
 
 
 export default function Competencies(props) {
 	// TODO: make canvas sizing dynamic
+	const fontSize = 20;
+	const speed = 0.6;
+	const competencyList = [];
+	console.log(competencies);
 
-	const ahoy = new Text("Ahoy", new Vector2D(250, 250), 20, colour.WHITE);
-	const hello = new Text("Hello", new Vector2D(250, 200), 20, colour.WHITE);
+	// Collect compentencies
+	for (const comp in competencies) {
+		const spawnTolerance = 100;
+		const x = Math.floor(Math.random() * (props.width - 2 * spawnTolerance)) + spawnTolerance;
+		const y = Math.floor(Math.random() * (props.height - 2 * spawnTolerance)) + spawnTolerance;
+		const heading = Math.floor(Math.random() * (360 + 1));
 
-	const movingAhoy = new FloatingItem(ahoy, new HeadingVector2D(1, -70));
-	const movingHello = new FloatingItem(hello, new HeadingVector2D(1, 40));
+		const textColour = getColour(competencies[comp]);
+		console.log(textColour);
+		const text = new Text(comp, new Vector2D(x, y), fontSize, textColour);
+		const movingText = new FloatingItem(text, new HeadingVector2D(speed, heading));
+		console.log(comp);
+		console.log("test")
+		competencyList.push(movingText);
+	}
 
 	const drawCanvas = (p5) => {
 		p5.push();
@@ -39,24 +60,52 @@ export default function Competencies(props) {
 	const draw = (p5) => {
 		p5.clear();
 		drawCanvas(p5);
-		
-		movingAhoy.updatePosition(p5);
-		movingHello.updatePosition(p5);
 
-		movingAhoy.draw(p5);
-		movingHello.draw(p5);
+		for (const comp of competencyList) {
+			comp.updatePosition(p5);
+			comp.draw(p5);
+		}
+		
+		// movingAhoy.updatePosition(p5);
+		// movingHello.updatePosition(p5);
+		// movingNihao.updatePosition(p5);
+
+		// movingAhoy.draw(p5);
+		// movingHello.draw(p5);
+		// movingNihao.draw(p5);
 	}
 
   return <Sketch setup={setup} draw={draw} />
 }
 
+function getColour(textColour) {
+	switch (textColour) {
+		case 'black':
+			return colour.BLACK;
+		case 'white':
+			return colour.WHITE;
+		case 'blue':
+			return colour.BLUE;
+		case 'red':
+			return colour.RED;
+		case 'green':
+			return colour.GREEN;
+		case 'yellow':
+			return colour.YELLOW;
+		case 'orange':
+			return colour.ORANGE;
+	}
+}
+
 class FloatingItem {
 	#item;
 	#velocity;
+	#angularVelocity;
 
 	constructor(item, velocity) {
 		this.#item = item;
 		this.#velocity = velocity
+		this.#angularVelocity = 0;
 	}
 
 	updatePosition(p5) {
@@ -156,10 +205,10 @@ class Text {
 	#colour;
 	#fontSize;
 
-	constructor(string, position = new Vector2D(0,0), fontSize=16, colour=[0,0,0]) {
+	constructor(string, position = new Vector2D(0,0), fontSize=16, textColour=colour.BLACK) {
 		this.#string = string;
 		this.#position = position;
-		this.#colour = colour;
+		this.#colour = textColour;
 		this.#fontSize = fontSize;
 	}
 
