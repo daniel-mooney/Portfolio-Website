@@ -14,11 +14,13 @@ const colour = {
 
 
 export default function Competencies(props) {
-	const ahoy = new Text("Ahoy", new Vector2D(250, 250), 20, colour.WHITE);
-	const hello = new Text("Hello", new Vector2D(50, 100), 20, colour.WHITE);
+	// TODO: make canvas sizing dynamic
 
-	const movingAhoy = new FloatingItem(ahoy, new Vector2D(0.5, 0.5));
-	const movingHello = new FloatingItem(hello, new Vector2D(-0.3, -0.8));
+	const ahoy = new Text("Ahoy", new Vector2D(250, 250), 20, colour.WHITE);
+	const hello = new Text("Hello", new Vector2D(250, 200), 20, colour.WHITE);
+
+	const movingAhoy = new FloatingItem(ahoy, new HeadingVector2D(1, -70));
+	const movingHello = new FloatingItem(hello, new HeadingVector2D(1, 40));
 
 	const drawCanvas = (p5) => {
 		p5.push();
@@ -116,6 +118,16 @@ class Vector2D {
 	add(v) {
 		this.#x += v.x;
 		this.#y += v.y;
+	}
+}
+
+class HeadingVector2D extends Vector2D {
+	constructor(speed, heading) {
+		const headingRadians = heading * (Math.PI / 180);
+		const x = speed * Math.cos(headingRadians);
+		const y = speed * Math.sin(headingRadians);
+
+		super(x, y);
 	}
 }
 
