@@ -25,6 +25,12 @@ p {
 .dropdown-content {
     text-align: justify;
     padding: 0.7rem;
+    margin: auto;
+}
+
+.dropdown-wrapper {
+    width: max-content;
+    margin: auto;
 }
 
 .dropdown-img {

@@ -9,7 +9,7 @@ const boundaryEnum = {
 }
 
 
-export default function Competencies() {
+export default function Competencies(props) {
 	const ahoy = new Text("Ahoy", new Vector2D(250, 250));
 	const hello = new Text("Hello", new Vector2D(50, 100));
 
@@ -17,7 +17,7 @@ export default function Competencies() {
 	const movingHello = new FloatingItem(hello, new Vector2D(-0.3, -0.8));
 
 	const setup = async (p5, canvasParentRef) => {
-		p5.createCanvas(600, 350).parent(canvasParentRef);
+		p5.createCanvas(props.width, props.height).parent(canvasParentRef);
 		p5.textFont("Georgia");
 		p5.angleMode(p5.DEGREE);
 	}
