@@ -32,7 +32,25 @@ function App() {
       <div className='parallax'>
         <div className='parallax__layer--back' ref={background}></div>
         <div className='parallax__layer--base content-body' ref={content}>
+          <div className='dropdown-wrapper'>
+            <Dropdown name='Thing'>
+              <p className='dropdown-content'>
+                Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nunc a posuere leo.
+                Mauris suscipit laoreet orci id porta. Phasellus maximus at nunc id cursus.
+                Quisque condimentum eros libero, ac fringilla ex commodo a. 
+                Quisque rutrum tempor sagittis. Ut quis dapibus sapien, eu varius justo.
+                Quisque vitae lacus eget eros blandit tristique. Praesent mollis neque non nisl 
+                blandit malesuada. Phasellus sit amet semper nisi. Cras vel scelerisque nisl.
+                Aliquam feugiat cursus sapien, sed tempor velit aliquet sed.
+                Vestibulum eu lorem porta, scelerisque felis nec, scelerisque quam.
+                Etiam malesuada, diam ac gravida euismod, quam leo imperdiet mi, id blandit 
+                quam sapien eget lacus.
+              </p>
+            </Dropdown>
+          </div>
+          <br/>
           <div className='competencies-wrapper'>
+            <h2>Competencies</h2>
             <Competencies width={650} height={350}/>
           </div>
           <div className='dropdown-wrapper'> 
