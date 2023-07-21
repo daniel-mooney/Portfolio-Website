@@ -60,3 +60,8 @@ p {
     float: right;
     margin: 0 0 0 3%;
 }
+
+.competencies-wrapper {
+    width: max-content;
+    margin:auto;
+}
