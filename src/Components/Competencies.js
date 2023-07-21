@@ -8,13 +8,25 @@ const boundaryEnum = {
 	BOTH: 'both'
 }
 
+const colour = {
+	WHITE: [255,255,255]
+}
+
 
 export default function Competencies(props) {
-	const ahoy = new Text("Ahoy", new Vector2D(250, 250));
-	const hello = new Text("Hello", new Vector2D(50, 100));
+	const ahoy = new Text("Ahoy", new Vector2D(250, 250), 20, colour.WHITE);
+	const hello = new Text("Hello", new Vector2D(50, 100), 20, colour.WHITE);
 
 	const movingAhoy = new FloatingItem(ahoy, new Vector2D(0.5, 0.5));
 	const movingHello = new FloatingItem(hello, new Vector2D(-0.3, -0.8));
+
+	const drawCanvas = (p5) => {
+		p5.push();
+		p5.noFill();
+		p5.stroke(...colour.WHITE);
+		p5.rect(0, 0, props.width, props.height);
+		p5.pop();
+	}
 
 	const setup = async (p5, canvasParentRef) => {
 		p5.createCanvas(props.width, props.height).parent(canvasParentRef);
@@ -24,7 +36,7 @@ export default function Competencies(props) {
 
 	const draw = (p5) => {
 		p5.clear();
-		p5.background(255, 130, 20);
+		drawCanvas(p5);
 		
 		movingAhoy.updatePosition(p5);
 		movingHello.updatePosition(p5);
@@ -130,27 +142,39 @@ class Text {
 	#string;
 	#position;
 	#colour;
+	#fontSize;
 
-	constructor(string, position = new Vector2D(0,0)) {
+	constructor(string, position = new Vector2D(0,0), fontSize=16, colour=[0,0,0]) {
 		this.#string = string;
 		this.#position = position;
+		this.#colour = colour;
+		this.#fontSize = fontSize;
 	}
 
 	draw(p5) {
+
+		p5.push();
+		p5.textSize(this.#fontSize);
+		p5.fill(...this.#colour);
+		p5.rectMode(p5.CENTER);
+
 		let height = p5.textAscent() + p5.textDescent();
 		let width = p5.textWidth(this.#string);
 
-		p5.push();
-		p5.rectMode(p5.CENTER);
 		p5.text(this.#string, this.#position.x, this.#position.y, width, height);
 		p5.pop();
 	}
 
 	atBoundary(p5) {
-		let textHeight = p5.textAscent();
+		p5.push();
+		p5.textSize(this.#fontSize);
+
+		let textHeight = p5.textAscent() + p5.textDescent();
 		let textWidth = p5.textWidth(this.#string);
 		let xTolerance = textWidth / 2;
 		let yTolerance = textHeight / 2;
+
+		p5.pop();
 
 		let atXBoundary = ((this.#position.x - xTolerance) <= 0
 							|| (this.#position.x + xTolerance) >= p5.width);
