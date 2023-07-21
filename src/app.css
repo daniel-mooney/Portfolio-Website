@@ -7,31 +7,6 @@ p {
     margin: 0;
 }
 
-.content-body {
-    background-color: rgba(10,13,26,255);
-    border-style: solid;
-    border-width: 1px;
-    border-radius: 7px;
-    box-shadow: 0 0 7px 2px white;
-    color: white;
-    width: 65vw;
-    height: auto;
-    margin: auto;
-    margin-top: 0.5rem;
-    margin-bottom: 0.5rem;
-    padding: 0.5rem;
-}
-
-.dropdown-content {
-    text-align: justify;
-    padding: 0.7rem;
-}
-
-.dropdown-img {
-    float: right;
-    margin: 0 0 0 3%;
-}
-
 .parallax {
     perspective: 1px;
     height: 100vh;
@@ -53,4 +28,40 @@ p {
     min-height: 100vh;
     width: 101vw;
     z-index: 1;
+}
+
+.content-body {
+    background-color: rgba(10,13,26,255);
+    border-style: solid;
+    border-width: 1px;
+    border-radius: 7px;
+    box-shadow: 0 0 7px 2px white;
+    color: white;
+    width: 65vw;
+    height: auto;
+    margin: auto;
+    margin-top: 0.5rem;
+    margin-bottom: 0.5rem;
+    padding: 0.5rem;
+}
+
+.dropdown-content {
+    text-align: justify;
+    padding: 0.7rem;
+    margin: auto;
+}
+
+.dropdown-wrapper {
+    width: max-content;
+    margin: auto;
+}
+
+.dropdown-img {
+    float: right;
+    margin: 0 0 0 3%;
+}
+
+.competencies-wrapper {
+    width: max-content;
+    margin:auto;
 }

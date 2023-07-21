@@ -1,0 +1,7 @@
+{
+    "python": "green",
+    "OpenCV": "blue",
+    "JavaScript": "yellow",
+    "C++": "red",
+    "aiken": "white"
+}
